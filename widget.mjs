@@ -14,9 +14,33 @@ export default {
       backgroundColor: "#eef2ff",
       color: "#4338ca",
     });
+
     btn.addEventListener("click", () => {
-      confetti({ origin: { y: 0.7 } });
+      const end = Date.now() + (2 * 1000);
+      const colors = ['#bb0000', '#ffffff'];
+
+      (function frame() {
+        confetti({
+          particleCount: 2,
+          angle: 60,
+          spread: 55,
+          origin: { x: Math.random(), y: Math.random() * 0.5 },
+          colors: colors
+        });
+        confetti({
+          particleCount: 2,
+          angle: 120,
+          spread: 55,
+          origin: { x: Math.random(), y: Math.random() * 0.5 },
+          colors: colors
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
     });
+
     el.appendChild(btn);
 
     return () => {
@@ -24,4 +48,3 @@ export default {
     };
   },
 };
-
