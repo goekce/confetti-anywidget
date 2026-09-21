@@ -3,7 +3,7 @@ import confetti from 'canvas-confetti';
 export default {
   render({ model, el }) {
     const btn = document.createElement("button");
-    btn.textContent = "🎉 Confetti!";
+    btn.textContent = "🎉 Tak for i dag!";
     Object.assign(btn.style, {
       padding: "10px 20px",
       fontSize: "16px",
